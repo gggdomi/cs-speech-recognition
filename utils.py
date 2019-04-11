@@ -5,6 +5,14 @@ import re
 from scipy.io import wavfile
 from scipy import signal
 
+BASE_TRAIN_FOLDER_SPEC = "spectrograms/"
+BASE_TRAIN_FOLDER_WAV = "wav_data/train/audio/"
+
+labels_to_ints = {
+    label.split('.')[0]: i for i, label in 
+    enumerate(x for x in sorted(os.listdir(BASE_TRAIN_FOLDER_WAV)) if not x.startswith('.') and not x.startswith('_'))
+}
+
 def wav2arr1s(wav_path, sample_rate=16000):
     in_sample_rate, samples = wavfile.read(wav_path)
     if not in_sample_rate == sample_rate:
