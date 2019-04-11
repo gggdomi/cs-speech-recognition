@@ -3,3 +3,4 @@ wav_data
 .ipynb_checkpoints
 kaggle_data
 __pycache__
+compiled-wav
